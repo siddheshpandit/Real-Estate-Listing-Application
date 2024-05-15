@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
-
+import cors from 'cors';
 dotenv.config();
 mongoose.connect(process.env.DATABASE_STRING,{
     dbName:'RealEstate-Listing'
@@ -13,6 +13,9 @@ mongoose.connect(process.env.DATABASE_STRING,{
     console.log(error);
 });
 const app=express();
+app.use(cors({
+    origin:'*'
+}))
 app.use(express.json());
 app.listen(process.env.PORT,()=>{
     console.log(`Server running on port ${process.env.PORT}`)
