@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-const url=process.env.REACT_APP_SERVER_URL;
+import { url } from '../utils/constants';
+
 const Signup = () => {
   const [formData, setFormData] = useState({})
   const [error, setError] = useState(null);
@@ -54,7 +55,7 @@ const Signup = () => {
         <p>Have an account?</p>
         <Link to={'/signin'}><span className='text-blue-700'> Sign In</span></Link>
       </div>
-      {error?<p className='text-red-500 mt-5'>{error}</p>:<></>}
+      {error?<p className='text-red-500'>{error}</p>:<></>}
     </div>
   )
 }
