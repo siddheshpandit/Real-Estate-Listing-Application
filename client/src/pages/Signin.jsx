@@ -18,12 +18,13 @@ const Signin = () => {
   const handleSubmit=async (e)=>{
     e.preventDefault();
     try {
-      // setLoading(true);
-      dispatch(signInStart);
+      dispatch(signInStart());
       const response = await fetch(`${url}/api/auth/signin`,{
         method:'POST',
+        credentials: 'include',
         headers:{
-          'Content-Type':'application/json'
+          'Content-Type':'application/json',
+          'Accept': 'application/json',
         },
         body:JSON.stringify(formData)
       })
