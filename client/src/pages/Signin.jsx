@@ -36,7 +36,6 @@ const Signin = () => {
       dispatch(signInSuccess(data))
       navigate('/')
     } catch (error) {
-      console.log(error);
       dispatch(signInFailure("Something went wrong"));
     }
   }
@@ -50,11 +49,11 @@ const Signin = () => {
       </form>
       <div className='flex gap-2 mt-3'>
         <p>Don't have an account?</p>
-        <Link to={'/signup'}><span className='text-blue-700'> Sign Up</span></Link>
+        <Link to={'/sign-up'}><span className='text-blue-700'> Sign Up</span></Link>
       </div>
       {error?<p className='text-red-500 mt-5'>{error}</p>:<></>}
     </div>
   )
 }
 
-export default Signin
+export default Signin;
